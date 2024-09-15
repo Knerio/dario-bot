@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: dario-bot
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: dario-bot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - postgres-network
+
+volumes:
+  postgres_data:
+
+networks:
+  postgres-network:
