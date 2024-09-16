@@ -52,11 +52,11 @@ def create_reminder_embed(user_id, page, reminders_per_page)
   reminders.each do |reminder|
     embed.add_field(
       name: ":date: #{reminder.next_execution}",
-      value: <<~STR
-        :speech_left: `#{reminder.message}`
-        #{":gear: #{reminder.cron_expression}" if reminder.cron?}
-        :id: #{reminder.id}
-      STR
+      value: [
+        ":speech_left: `#{reminder.message}`",
+        (":gear: #{reminder.cron_expression}" if reminder.cron?),
+        ":id: #{reminder.id}"
+      ].compact.join("\n")
     )
   end
 
