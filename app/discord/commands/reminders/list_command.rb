@@ -54,7 +54,7 @@ def create_reminder_embed(user_id, page, reminders_per_page)
       name: ":date: #{reminder.next_execution}",
       value: <<~STR
         :speech_left: `#{reminder.message}`
-        #{reminder.cron? ? ":gear: #{reminder.cron_expression}" : ""}
+        #{":gear: #{reminder.cron_expression}" if reminder.cron}
         :id: #{reminder.id}
       STR
     )
