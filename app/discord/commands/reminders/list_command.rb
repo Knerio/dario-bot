@@ -1,7 +1,7 @@
 Bot.application_command(:reminder).subcommand(:list) do |event|
 
   embed = create_reminder_embed(event.user.id, 1, 5)
-  more_reminders = Reminder.where(owner: event.user.id).offset(current_page * 5).exists?
+  more_reminders = Reminder.where(owner: event.user.id).offset(5).exists?
 
   event.respond(content: "<@#{event.user.id}>", embeds: [embed]) do |_, view|
     view.row do |r|
