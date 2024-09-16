@@ -36,7 +36,7 @@ module Reminders
         date_str = "#{date_str}.#{Time.now.year}"
       end
 
-      DateTime.strptime(date_str, '%H:%M %d.%m.%Y')
+      Time.zone.strptime(date_str, '%H:%M %d.%m.%Y')
     end
   end
 
