@@ -11,7 +11,7 @@ class Reminder < ApplicationRecord
     if once?
       return self.execute_at
     end
-    cron = Fugit::Cron.parse(self.cron_expression)
+    cron = Fugit::Cron.parse(self.cron_expression).change
     cron.next_time
   end
   

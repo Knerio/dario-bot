@@ -15,7 +15,7 @@ module Reminders
     def execute
       case type
       when :cron
-        reminder = ::Reminder.create(owner: owner, message: message, execute_type: type.to_s, cron_expression: execution, execute_at: Fugit::Cron.parse(execution).next_time.to_time_s)
+        reminder = ::Reminder.create(owner: owner, message: message, execute_type: type.to_s, cron_expression: execution, execute_at: Fugit::Cron.parse(execution).next_time.to_time)
       when :once
         reminder = ::Reminder.create(owner: owner, message: message, execute_type: "once", execute_at: parse_date(execution))
       else
