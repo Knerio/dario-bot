@@ -11,7 +11,7 @@ Bot.application_command(:reminder).subcommand(:create_once) do |event|
       description:
         <<~STR
           :speech_left: `#{response.payload.message}`
-          :date: #{response.payload.execute_at.in_time_zone("Europe/Berlin").to_s}
+          :date: #{response.payload..in_time_zone("Europe/Berlin").to_s}
           :id: #{response.payload.id}
         STR
     )]

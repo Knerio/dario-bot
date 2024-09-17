@@ -11,9 +11,9 @@ module Reminders
 
     def execute
       if reminder.once?
-        return ServiceResponse.error(payload: reminder) if reminder.execute_at.in_time_zone("Europe/Berlin") > Time.now.in_time_zone("Europe/Berlin")
+        return ServiceResponse.error(payload: reminder) if reminder.next_execution.in_time_zone("Europe/Berlin") > Time.now.in_time_zone("Europe/Berlin")
       else
-        return ServiceResponse.error(payload: reminder) if reminder.execute_at.in_time_zone("Europe/Berlin") > Time.now.in_time_zone("Europe/Berlin")
+        return ServiceResponse.error(payload: reminder) if reminder.next_execution.in_time_zone("Europe/Berlin") > Time.now.in_time_zone("Europe/Berlin")
       end
 
       user = Bot.user(reminder.owner)
@@ -23,7 +23,7 @@ module Reminders
         embed.description =
           <<~STR
             :speech_left: `#{reminder.message.to_s}`
-            :date: #{reminder.execute_at.to_s}
+            :date: #{reminder.next_execution.to_s}
             :id: #{reminder.id.to_s}
           STR
       end

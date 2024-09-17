@@ -11,7 +11,7 @@ Bot.application_command(:reminder).subcommand(:create_cron) do |event|
       description:
         <<~STR
           :speech_left: `#{response.payload.message}`
-          :date: #{response.payload.execute_at}
+          :date: #{response.payload.next_execution}
           :gear: #{response.payload.cron_expression}
           :id: #{response.payload.id}
         STR
