@@ -11,9 +11,9 @@ module Reminders
 
     def execute
       if reminder.once?
-        return ServiceResponse.error(payload: reminder) if reminder.execute_at > Time.zone.now
+        return ServiceResponse.error(payload: reminder) if reminder.execute_at > Time.now.in_time_zone("Europe/Berlin")
       else
-        return ServiceResponse.error(payload: reminder) if reminder.execute_at > Time.zone.now
+        return ServiceResponse.error(payload: reminder) if reminder.execute_at > Time.now.in_time_zone("Europe/Berlin")
       end
 
       user = Bot.user(reminder.owner)

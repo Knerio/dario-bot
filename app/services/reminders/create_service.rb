@@ -35,8 +35,9 @@ module Reminders
         # Case: day and month are provided, append current year
         date_str = "#{date_str}.#{Time.now.year}"
       end
+      date_str = "#{date_str} +0200"
 
-      Time.zone.strptime(date_str, '%H:%M %d.%m.%Y')
+      Time.zone.strptime(date_str, '%H:%M %d.%m.%Y %z')
     end
   end
 
