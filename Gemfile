@@ -36,6 +36,8 @@ gem 'discordrb', '~> 3.5', git: 'https://github.com/shardlab/discordrb', branch:
 
 gem "sidekiq"
 gem "pg"
+gem 'faye-websocket'
+gem 'eventmachine'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
