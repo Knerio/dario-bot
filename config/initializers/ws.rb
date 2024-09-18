@@ -42,5 +42,5 @@ def listen_to_twitch
   end
 end
 
-
+p "Starting to listen"
 listen_to_twitch
