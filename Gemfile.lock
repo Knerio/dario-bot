@@ -118,6 +118,10 @@ GEM
     et-orbi (1.2.11)
       tzinfo
     event_emitter (0.2.6)
+    eventmachine (1.2.7)
+    faye-websocket (0.11.3)
+      eventmachine (>= 0.12.0)
+      websocket-driver (>= 0.5.1)
     ffi (1.17.0-x64-mingw-ucrt)
     ffi (1.17.0-x86_64-linux-gnu)
     fugit (1.11.1)
@@ -128,7 +132,7 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.7)
       domain_name (~> 0.5)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
@@ -292,16 +296,13 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.0.4-x64-mingw-ucrt)
-    sqlite3 (2.0.4-x86_64-linux-gnu)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.1)
     thor (1.3.2)
     timeout (0.4.1)
-    turbo-rails (2.0.7)
+    turbo-rails (2.0.9)
       actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -336,6 +337,8 @@ DEPENDENCIES
   capybara
   debug
   discordrb (~> 3.5)!
+  eventmachine
+  faye-websocket
   fugit
   importmap-rails
   jbuilder
@@ -346,7 +349,6 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq
   sprockets-rails
-  sqlite3 (>= 1.4)
   stimulus-rails
   turbo-rails
   tzinfo-data
