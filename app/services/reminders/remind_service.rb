@@ -13,9 +13,10 @@ module Reminders
       if reminder.once?
         return ServiceResponse.error(payload: reminder) if reminder.next_execution.in_time_zone("Europe/Berlin") > Time.now.in_time_zone("Europe/Berlin")
       else
-        return ServiceResponse.error(payload: reminder) if reminder.next_execution.in_time_zone("Europe/Berlin") > Time.now.in_time_zone("Europe/Berlin")
+        return ServiceResponse.error(payload: reminder) if (reminder.next_execution - Time.now)  > 5
       end
 
+      puts "executin"
       user = Bot.user(reminder.owner)
       user.pm.send_embed("#{reminder.message} <@#{reminder.owner}>") do |embed|
         embed.title = ":alarm_clock: A reminder has been triggered"
@@ -32,7 +33,7 @@ module Reminders
         reminder.delete
       else
         next_execution = reminder.next_execution.to_s
-        reminder.update(execute_at: next_execution) 
+        reminder.update(execute_at: next_execution)
       end
 
       ServiceResponse.success(payload: reminder)

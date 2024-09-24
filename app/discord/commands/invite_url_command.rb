@@ -1,3 +1,3 @@
-Bot.command(:invite_url) do |event|
-  event.respond content: Bot.invite_url, ephemeral: true
+Bot.command(:invite_url) do |event, *code|
+   Bot.invite_url.to_s
 end
