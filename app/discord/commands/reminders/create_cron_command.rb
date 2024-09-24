@@ -15,5 +15,5 @@ Bot.application_command(:reminder).subcommand(:create_cron) do |event|
           :gear: #{response.payload.cron_expression}
           :id: #{response.payload.id}
         STR
-    )]
+    )], ephemeral: event.channel.type != 1
 end

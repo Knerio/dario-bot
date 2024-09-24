@@ -14,5 +14,5 @@ Bot.application_command(:reminder).subcommand(:delete) do |event|
           :date: #{response.payload.next_execution.in_time_zone("Europe/Berlin").to_s}
           :id: #{response.payload.id}
         STR
-    )]
+    )], ephemeral: event.channel.type != 1
 end

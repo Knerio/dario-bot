@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_14_154132) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_19_121551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "join_roles", force: :cascade do |t|
+    t.bigint "guild_id"
+    t.bigint "role_ids", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reminders", force: :cascade do |t|
     t.bigint "owner", null: false

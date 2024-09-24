@@ -23,7 +23,7 @@ module Reminders
         embed.description =
           <<~STR
             :speech_left: `#{reminder.message.to_s}`
-            :date: #{reminder.next_execution.to_s}
+            :date: #{reminder.next_execution.in_time_zone("Europe/Berlin").to_s}
             :id: #{reminder.id.to_s}
           STR
       end

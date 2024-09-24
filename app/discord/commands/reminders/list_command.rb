@@ -3,7 +3,7 @@ Bot.application_command(:reminder).subcommand(:list) do |event|
   embed = create_reminder_embed(event.user.id, 1, 5)
   more_reminders = Reminder.where(owner: event.user.id).offset(5).exists?
 
-  event.respond(content: "<@#{event.user.id}>", embeds: [embed]) do |_, view|
+  event.respond(content: "<@#{event.user.id}>", embeds: [embed], ephemeral: event.channel.type != 1) do |_, view|
     view.row do |r|
       r.button(label: 'Previous', emoji: nil, style: :primary, custom_id: 'previous_page_reminder', disabled: true)
       r.button(label: 'Next', emoji: nil, style: :primary, custom_id: 'next_page_reminder', disabled: !more_reminders)

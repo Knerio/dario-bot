@@ -1,0 +1,2 @@
+class JoinRole < ApplicationRecord
+end
