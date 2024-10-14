@@ -1,9 +1,10 @@
 GIT
   remote: https://github.com/shardlab/discordrb
-  revision: 50fbb5fec83aabf3cdeb94dcfbe771e7a3c4a4bb
+  revision: 840c533838787de1d3c5603f8055b30f009f7bd0
   branch: main
   specs:
     discordrb (3.5.0)
+      base64 (~> 0.2.0)
       discordrb-webhooks (~> 3.5.0)
       ffi (>= 1.9.24)
       opus-ruby
@@ -165,9 +166,10 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    mime-types (3.5.2)
+    mime-types (3.6.0)
+      logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.0903)
+    mime-types-data (3.2024.1001)
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.2)
